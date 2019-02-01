@@ -2,6 +2,9 @@ body {
 	margin: 0;
 	padding: 0;
 }
+p {
+    font-size: 20px;
+}
 
 .view-box {
 	width: 90%;

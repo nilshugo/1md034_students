@@ -1,9 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-        <h1>Hello World!!!</h1>
-    </body>
+<html>
+  <head>
+    <title>Cool Burgers</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <main>
+      <h1 id="headline" class="header">Welcome to Cool Burgers</h1>
+      <img id="headerimg" class="header" src="/img/header-image-1-2.png">
+      <section id="selection">
+        <h2>Select Burger</h2>
+        <p>This is where you execute burger selection</p>
+
+        <div class="wrapper">
+          <div class="box" id="a">
+            <h2>The McChungus</h2>
+            <img src="/img/j9baq9oii3721.jpg" class="burger">
+            <ul>
+              <li>High quality cartoon meat</li>
+              <li>Not nearly as fake as normal McDonalds meat</li>
+              <li class="allergenes">Might contain pixelation</li>
+            </ul>
+          </div>
+          <div class="box" id="b">
+            <h2>Monster burger</h2>
+            <img src="/img/macho-nacho.jpg" class="burger">
+            <ul>
+              <li class="allergenes">Contains a ridiculous amount of cheese, which contains lactose</li>
+              <li>It might eat you</li>
+            </ul>
+
+          </div>
+          <div class="box" id="c">
+            <h2>Not BigMac</h2>
+            <img src="/img/big-mac-a-list.jpg" class="burger">
+            <ul>
+              <li>If you expect this to be a McDonalds product, you will be disappointed</li>
+              <li>This does contain bread, lettuce, meat and cheese (with lactose)</li>
+              <li class="allergenes">But, this is not a BigMac</li>
+            </ul>
+          </div>
+        </div>
+        
+      </section>
+      
+      <section id="contact">
+        <h2>Customer information</h2>
+        <p>
+          This is where you provide necessary information
+        </p>
+        <h3>Delivery Information:</h3>
+        <form>
+          <p>
+            <label for="name">Full Name</label><br>
+            <input type="text" id="name" name="name" required="required" placeholder="Full name">
+          </p>
+          <p>
+            <label for="adress">Home Adress</label><br>
+            <input type="text" id="adress" name="adress" placeholder="Street name & number">
+          </p>
+          <p>
+            <label for="email">Email-Adress</label><br>
+            <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+          </p>
+
+          <p>
+            <label for="payopt">Payment Options</label><br>
+            <select id="payopt" name="rcp">
+              <option>Visa</option>
+              <option>Mastercard</option>
+              <option>Paypal</option>
+              <option>Bitcoin</option>
+            </select>
+          </p>
+          <h3>Your Gender:</h3>
+          <p>
+            <label for="male">Male</label>
+            <input type="radio" id="male" name="gender"><br>
+            <label for="female">Female</label>
+            <input type="radio" id="female" name="gender"><br>
+            <label for="other">Do not wish to provide</label>
+            <input type="radio" id="other" name="gender" checked><br>
+          </p>
+          <button type="submit">Place Order</button>
+        </form>
+      </section>
+    </main>
+  </body>
 </html>

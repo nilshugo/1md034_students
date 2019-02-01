@@ -1,0 +1,79 @@
+body {
+    font-family: arial;
+}
+
+#selection {
+    background-color:black;
+    color:white;
+}
+
+button {
+    font-size:21px;
+}
+
+button:hover {
+    background-color:purple;
+    color:yellow;
+}
+
+.allergenes {
+    font-weight:bold;
+    color:#DEAD;
+}
+
+section {
+    margin:5px;
+    padding:5px;
+    border: 3px dashed #0000ff;
+}
+
+table {
+    cellspacing=20px;
+}
+
+.burger {
+    width:300px;
+    height:210px;
+}
+
+.header {
+    margin:5px;
+    overflow:hidden;
+}
+
+#headline {
+    position:absolute;
+    top:50px;
+    left:100px;
+}
+
+#headerimg {
+    opacity:0.75;
+    width:1200px;
+    height:220px;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap:20px;
+    grid-template-columns:350px 350px 350px;
+}
+
+ .box {
+     padding:20px;
+ }
+
+ #a {
+     grid-row:1 / span 3;
+     grid-column:1;
+ }
+
+ #b {
+     grid-row: 1/span 3;
+     grid-column:2;
+ }
+
+ #c {
+     griw-row: 1/span 3;
+     grid-column:3;
+ }
