@@ -23,22 +23,43 @@ function generateBurgers() {
 function createMenu() {
     var grid = document.getElementById("wrapper");
 
-    console.log(burgers);
+    console.log(grid);
     for(var i = 0; i < burgers.length; i++) {
         console.log("Appending " + burgers[i].name);
+
         var box = document.createElement("div");
-        box.setAttribute("id", burgers[i].name);
-        box.setAttribute("class", "box");
-        box.setAttribute("grid-row", "1 / span 3");
-        box.setAttribute("grid-column", "" + (i+1));
-        
+        box.setAttribute("class", "box" + (i+1));
+
         box.appendChild(document.createElement("h2")).innerHTML = burgers[i].name;
-        var pic = box.appendChild(document.createElement("img"));
+
+        var pic = document.createElement("img");
         pic.setAttribute("class", "burger");
         pic.setAttribute("src", burgers[i].img_url);
+        box.appendChild(pic);
 
         grid.appendChild(box);
     }
 }
+/*
+var parent = document.getElementById("wrapper");
 
+function appendBurger(parent, burger) {
+    var box = document.createElement("div");
+    var head = document.createElement("h2");
+    var pic = document.createElement("img");
+    var list = document.createElement("ul");
+
+    head.innerHTML = burger.name;
+
+    pic.setAttribute("src", burger.img_url);
+    pic.setAttribute("class", "burger");
+    
+    box.appendChild(head);
+    box.appendChild(pic);
+    parent.appendChild(box);
+}
+
+for(var i = 0; i < burgers.length; i++) {
+    appendBurger(parent, burgers[i]);
+}*/
 createMenu();

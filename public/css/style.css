@@ -27,10 +27,6 @@ section {
     border: 3px dashed #0000ff;
 }
 
-table {
-    cellspacing=20px;
-}
-
 .burger {
     width:300px;
     height:210px;
@@ -53,27 +49,28 @@ table {
     height:220px;
 }
 
-.wrapper {
+#wrapper {
+    width:100%;
     display: grid;
-    grid-gap:20px;
-    grid-template-columns:350px 350px 350px;
+    grid-template-columns: 20% 20% 20% 20% 20%;
 }
 
- .box {
-     padding:20px;
- }
+.box1 {
+grid-column: 1;
+}
 
- #a {
-     grid-row:1 / span 3;
-     grid-column:1;
- }
+.box2 {
+grid-column: 2;
+}
 
- #b {
-     grid-row: 1/span 3;
-     grid-column:2;
- }
+.box3 {
+grid-column: 3;
+}
+ 
+.box4 {
+grid-column: 4;
+}
 
- #c {
-     grid-row: 1/span 3;
-     grid-column:3;
- }
+.box5 {
+grid-column: 5;
+}
