@@ -28,7 +28,6 @@ function createMenu() {
         console.log("Appending " + burgers[i].name);
 
         var box = document.createElement("div");
-        box.setAttribute("class", "box" + (i+1));
 
         box.appendChild(document.createElement("h2")).innerHTML = burgers[i].name;
 
@@ -37,29 +36,25 @@ function createMenu() {
         pic.setAttribute("src", burgers[i].img_url);
         box.appendChild(pic);
 
+        var list = document.createElement("ul");
+        if(burgers[i].gluten) {
+            list.appendChild(document.createElement("li")).innerHTML = "Contains gluten";
+        }
+        else {
+            list.appendChild(document.createElement("li")).innerHTML = "Gluten-free";
+        }
+
+        if(burgers[i].lactose) {
+            list.appendChild(document.createElement("li")).innerHTML = "Contains lactose";
+        }
+        else {
+            list.appendChild(document.createElement("li")).innerHTML = "Lactose-free";
+        }
+        list.appendChild(document.createElement("li")).innerHTML = "Number of calories: " + burgers[i].kcal;
+        box.appendChild(list);
+
         grid.appendChild(box);
     }
 }
-/*
-var parent = document.getElementById("wrapper");
 
-function appendBurger(parent, burger) {
-    var box = document.createElement("div");
-    var head = document.createElement("h2");
-    var pic = document.createElement("img");
-    var list = document.createElement("ul");
-
-    head.innerHTML = burger.name;
-
-    pic.setAttribute("src", burger.img_url);
-    pic.setAttribute("class", "burger");
-    
-    box.appendChild(head);
-    box.appendChild(pic);
-    parent.appendChild(box);
-}
-
-for(var i = 0; i < burgers.length; i++) {
-    appendBurger(parent, burgers[i]);
-}*/
 createMenu();
