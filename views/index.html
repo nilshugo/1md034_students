@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="/js/menu.js" type="text/javascript"></script>
     <script src="https://vuejs.org/js/vue.js"></script>
-    <script src="/js/js_script.js" type="text/javascript" defer></script>
-    <!script src="/js/vue_script.js" type="text/javascript"><!/script>
+    <!script src="/js/js_script.js" type="text/javascript" defer><!/script>
+    <script src="/js/vue_script.js" type="text/javascript" defer></script>
   </head>
   <body>
     <main>
@@ -18,7 +18,7 @@
         <p>This is where you execute burger selection</p>
 
         <div id="wrapper">
- 
+          {{burgercontent}}
         </div>
         
       </section>
@@ -61,8 +61,8 @@
             <label for="other">Do not wish to provide</label>
             <input type="radio" id="other" name="gender" checked><br>
           </p>
-          <button type="submit">Place Order</button>
         </form>
+        <button onclick="displayOrder()">Place Order</button>
       </section>
     </main>
   </body>
