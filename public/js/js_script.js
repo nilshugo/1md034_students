@@ -1,3 +1,5 @@
+// The code in this file is not used currently
+
 function menuItem(name, kCal, ifGluten, ifLactose, img_url) {
     var burgerItem = {};
     burgerItem.name = name;
@@ -66,7 +68,7 @@ function createMenu() {
     }
 }
 
-createMenu();
+//createMenu();
 
 function displayOrder() {
     var orderInfo = {
@@ -103,5 +105,4 @@ function displayOrder() {
                         + "<br>Order: " + orderInfo.burgerOrder.toString();
 
     section.appendChild(textdiv);
-    console.log(orderInfo);
 }
