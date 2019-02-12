@@ -3,14 +3,16 @@
   <head>
     <title>Cool Burgers</title>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/deli-very.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/menu.js" type="text/javascript"></script>
     <script src="https://vuejs.org/js/vue.js"></script>
     <script src="/js/js_script.js" type="text/javascript" defer></script>
     <script src="/js/vue_script.js" type="text/javascript" defer></script>
   </head>
   <body>
-    <main>
+    <main id="main">
       <h1 id="headline" class="header">Welcome to Cool Burgers</h1>
       <img id="headerimg" class="header" src="/img/header-image-1-2.png">
       <section id="selection">
@@ -33,10 +35,6 @@
           <p>
             <label for="name">Full Name</label><br>
             <input type="text" id="name" name="name" required="required" placeholder="Full name">
-          </p>
-          <p>
-            <label for="adress">Home Adress</label><br>
-            <input type="text" id="adress" name="adress" placeholder="Street name & number">
           </p>
           <p>
             <label for="email">Email-Adress</label><br>
@@ -62,6 +60,15 @@
             <input type="radio" id="other" name="gender" checked><br>
           </p>
         </form>
+        <div class="view-box">
+          <div id="dots" v-on:click="addOrder">
+              <div 
+                v-for="(order, key) in orders"
+                v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                {{key}}
+              </div>
+          </div>
+        </div>
         <button v-on:click="displayOrder()">Place Order</button>
       </section>
     </main>
