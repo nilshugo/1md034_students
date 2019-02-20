@@ -10,15 +10,6 @@ var vm = new Vue({
           orderItems: []
       }
   },
-  created: function () {
-    socket.on('initialize', function (data) {
-      this.orders = data.orders;
-    }.bind(this));
-
-    socket.on('currentQueue', function (data) {
-      this.orders = data.orders;
-    }.bind(this));
-  },
   methods: {
     createMenu: function() {
       var grid = document.getElementById("wrapper");
@@ -78,14 +69,19 @@ var vm = new Vue({
         }, 0);
         return lastOrder + 1;
       },
-      addOrder: function (event) {
-        var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                      y: event.currentTarget.getBoundingClientRect().top};
-        socket.emit("addOrder", { orderId: this.getNext(),
-                                  details: { x: event.clientX - 10 - offset.x,
-                                             y: event.clientY - 10 - offset.y },
-                                  orderItems: ["Beans", "Curry"]
-                                });
+      addOrder: function () {
+        this.tempOrders.orderItems = [];
+        for(var i = 0; i < burgers.length; i++) {
+          var box = document.getElementById("burgerbox" + i);
+          if(box.checked) this.tempOrders.orderItems.push(burgers[i].name);
+        }
+        var personalInfo = [];
+        personalInfo.push(document.getElementById("name").value);
+        personalInfo.push(document.getElementById("email").value);
+        personalInfo.push(document.getElementById("payopt").value);
+        this.tempOrders.personalInfo = personalInfo;
+        console.log(this.tempOrders);
+        socket.emit("addOrder", this.tempOrders);
       }
   }
 });

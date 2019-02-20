@@ -64,11 +64,11 @@
           <div id="dots" v-on:click="displayOrder">
               <div 
                 v-bind:style="{ left: tempOrders.details.x + 'px', top: tempOrders.details.y + 'px'}">
-                T
+                {{tempOrders.orderId}}
               </div>
           </div>
         </div>
-        <button v-on:click="displayOrder()">Place Order</button>
+        <button v-on:click="addOrder">Place Order</button>
       </section>
     </main>
   </body>
