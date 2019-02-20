@@ -1,9 +1,14 @@
 var socket = io();
 
-var vmMenu = new Vue({
+var vm = new Vue({
   el: "#main",
   data: {
-    orders: {},
+      orders: {},
+      tempOrders: {
+          orderId: "T",
+          details: { "x": 100000000, "y": 10000000000000},
+          orderItems: []
+      }
   },
   created: function () {
     socket.on('initialize', function (data) {
@@ -60,40 +65,12 @@ var vmMenu = new Vue({
           grid.appendChild(box);
       }
     },
-    displayOrder: function() {
-        var orderInfo = {
-            "burgerOrder":[]
-        };
-        for(var i = 0; i < 5; i++) {
-            var checkbox = document.getElementById("burgerbox" + i);
-            if(checkbox.checked) {
-                orderInfo.burgerOrder.push(burgers[i].name);
-            }
-        }
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
+    displayOrder: function(event) {
+        var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                      y: event.currentTarget.getBoundingClientRect().top};
         
-        var payment = document.getElementById("payopt").value;
-        orderInfo.name = name;
-        orderInfo.email = email;
-        
-        orderInfo.payopt = payment;
-
-        if(document.getElementById("male").checked) orderInfo.gender = "male";
-        if(document.getElementById("female").checked) orderInfo.gender = "female";
-        if(document.getElementById("other").checked) orderInfo.gender = "did not provide";
-
-        var section = document.getElementById("contact");
-        
-        var textdiv = document.createElement("div");
-
-        textdiv.innerHTML = "<br>Name: " + orderInfo.name + "<br>"
-                            + "<br>Gender: " + orderInfo.gender + "<br>"
-                            + "<br>Email: " + orderInfo.email + "<br>"
-                            + "<br>Payment Option: " + orderInfo.payopt + "<br>"
-                            + "<br>Order: " + orderInfo.burgerOrder.toString();
-        
-        section.appendChild(textdiv);
+        this.tempOrders.details.x = event.clientX - 10 - offset.x;
+        this.tempOrders.details.y = event.clientY - 10 - offset.y;
       },
       getNext: function () {
         var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
@@ -113,3 +90,4 @@ var vmMenu = new Vue({
   }
 });
 
+vm.createMenu();
